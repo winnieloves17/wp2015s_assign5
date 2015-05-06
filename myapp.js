@@ -14,6 +14,9 @@ var skycons = new Skycons();
   // start animation!
   skycons.play();
   
+  // want to change the icon? no problem:
+  skycons.set("today", Skycons.PARTLY_CLOUDY_NIGHT);
+  
 /*
 Get value from Bootstrap dropdown menu
 */
