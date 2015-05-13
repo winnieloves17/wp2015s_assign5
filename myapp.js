@@ -23,3 +23,12 @@ Get value from Bootstrap dropdown menu
 $('#dropdown li').on('click', function(){
     alert($(this).text());
 });
+
+ $.getJSON(
+    '查詢Yahoo Weather API上得出URL連結',
+    {},
+    function(data, status){
+      
+      console.log('data', data);
+    }
+  );
