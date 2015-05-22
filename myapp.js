@@ -52,10 +52,11 @@ $('#dropdown li').on('click', function(){
        });
 
        //回傳 onClick, find("name or num")
-       $().text();
-       $().html();
-       
-       // 華氏換算攝氏:(F-32)*
-       // http://divaclin.github.io/wp2015sYahooWeatherApi/
+       $('#city').text(name);
+       $('#date').text(num);
+       $('#weatherInfo').html(name);
+       $('#temparature').html((num-23)*(5/9);
+       // 華氏換算攝氏:(F-32)*(5/9)
+
 
 
