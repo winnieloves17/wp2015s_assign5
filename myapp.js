@@ -26,7 +26,8 @@ $('#dropdown li').on('click', function(){
     
 });
 
-     var cityArr=["Taipei","Taoyuan","Tainan","Yilan","Pindong","","",""];
+     var cityArr=["Taibei Shi","Xinbei Shi","Taiching Shi","Tainan Shi","Kaoshiong Shi","Taoyuan Shi","Xinzhu Shi","Xinchu Xian","Miaoli Xian","Nantou Xian",
+       "Yunlin Xian","Jiayi Shi","Jiayi Xian","Pindong Xian","Yilan Xian","Hualian Xian","Taidong Xian","Penghu Xian","Jinmen Xian","Lianjiang Xian"];
        $.ajax('https://query.yahooapis.com/v1/public/yql', {
          method: 'GET',
          data: {
