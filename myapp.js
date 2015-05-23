@@ -26,8 +26,7 @@ $('#dropdown li').on('click', function(){
     
 });
 
- cityArr = [
-                '臺北市',
+var cityArr = [ '臺北市',
                 '新北市',
                 '台中市',
                 '臺南市',
@@ -50,10 +49,11 @@ $('#dropdown li').on('click', function(){
                 '金門縣',
                 '連江縣'
                 ];       
+
     $.ajax('https://query.yahooapis.com/v1/public/yql', {
          method: 'GET',
          data: {
-           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[n] + '") and u="c"',
+           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[2] + '") and u="c"',
            format: 'json'
          },
          success: function (data) {
@@ -61,35 +61,40 @@ $('#dropdown li').on('click', function(){
 
         date0 = weatherInfo.item.forecast[0].date,
         high0 = weatherInfo.item.forecast[0].high,
-        low0 = weatherInfo.item.forecast[0].low,
+        low0  = weatherInfo.item.forecast[0].low,
         text0 = weatherInfo.item.forecast[0].text,
 
-        date1, = weatherInfo.item.forecast[1].date,
+        date1 = weatherInfo.item.forecast[1].date,
         high1 = weatherInfo.item.forecast[1].high,
-        low1 = weatherInfo.item.forecast[1].low,
+        low1  = weatherInfo.item.forecast[1].low,
         text1 = weatherInfo.item.forecast[1].text,
 
-        date2 = weatherInfo.item.forecst[2].date,
+        date2 = weatherInfo.item.forecast[2].date,
         high2 = weatherInfo.item.forecast[2].high,
-        low2 = weatherInfo.item.forecast[2].low,
+        low2  = weatherInfo.item.forecast[2].low,
         text2 = weatherInfo.item.forecast[2].text,
 
         date3 = weatherInfo.item.forecast[3].date,
         high3 = weatherInfo.item.forecast[3].high,
-        low3 = weatherInfo.item.forecast[3].low,
-        text3 = weatherInfo.item.forecast[3].text,
+        low3  = weatherInfo.item.forecast[3].low,
+        text3 = weatherInfo.item.forecast[3].text;
+
+         $('.date').text(date0);
+         $('#dateDay1').text(date1);
+         $('#dateDay2').text(date2);
+         $('#dateDay3').text(date3);
+
+         $('.temperature').text(low0+"-"+high0);
+         $('#tempDay1').text(low1+"-"+high1);
+         $('#tempDay2').text(low2+"-"+high2);
+         $('#tempDay3').text(low3+"-"+high3);
 
          }
        });
 
        //回傳 onClick, find("name or num")
-       $('.date').text();
-       $('#dateDay1').text();
-       $('#dateDay2').text();
-       $('#dateDay3').text();
-       
-       $('.condition',).text();
-       $('.temperature').text();
+
+
 
 
 
