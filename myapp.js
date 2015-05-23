@@ -18,15 +18,8 @@ var skycons = new Skycons();
   
   // want to change the icon? no problem:
   skycons.set("today", Skycons.PARTLY_CLOUDY_NIGHT);
-  
-/*
-Get value from Bootstrap dropdown menu
-*/
-$('#dropdown li').on('click', function(){
-    
-});
 
-var cityArr = [ '臺北市',
+  var cityArr = [ '臺北市',
                 '新北市',
                 '台中市',
                 '臺南市',
@@ -48,12 +41,40 @@ var cityArr = [ '臺北市',
                 '澎湖縣',
                 '金門縣',
                 '連江縣'
-                ];       
+                ],
 
+          citynum=0; 
+/*
+Get value from Bootstrap dropdown menu
+*/
+
+  var citymenu = function (){
+    $('.btn').text(cityArr[0]);
+    $('li').remove();
+    for(var i=0;i<cityArr.length;i+=1){
+    $('<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+cityArr[i]+'</a></li>').appendTo('#dropdown');
+    }
+  };
+var citymenuPick = function(){
+  $('#dropdown li').on('click', function(){
+    for(var i=0;i<cityArr.length;i+=1){
+      if($(this).text()===cityArr[i]){
+        citynum=i;
+        $('.btn').text(cityArr[i]);
+        weatherInfoGrab();
+      }}
+  });
+};
+
+citymenu();
+
+citymenuPick();
+
+var weatherInfoGrab =function(){
     $.ajax('https://query.yahooapis.com/v1/public/yql', {
          method: 'GET',
          data: {
-           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[10] + '") and u="c"',
+           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[citynum] + '") and u="c"',
            format: 'json'
          },
          success: function (data) {
@@ -185,7 +206,9 @@ var cityArr = [ '臺北市',
 
          }
        });
+};
 
+weatherInfoGrab();
        
 
 
