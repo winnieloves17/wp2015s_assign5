@@ -58,25 +58,38 @@ var cityArr = [
          },
          success: function (data) {
        var weatherInfo = data.query.results.channel;
-       var a = weatherInfo.item.forecast[0].date;
-           console.log(a);
-       var b = weatherInfo.item.forecast[0].day;
-           console.log(b);
-       var c = weatherInfo.item.forecast[0].high;
-           console.log(c);
-       var d = weatherInfo.item.forecast[0].low;
-           console.log(d);
-       var e = weatherInfo.item.forecast[0].text;
-           console.log(e);
+       var date0 = weatherInfo.item.forecast[0].date;
+           console.log(date0);
+       var date0 = weatherInfo.item.forecast[0].high;
+           console.log(date0);
+       var date0 = weatherInfo.item.forecast[0].low;
+           console.log(date0);
+       var text0 = weatherInfo.item.forecast[0].text;
+           console.log(text0);
+
+
 
          }
        });
 
        //回傳 onClick, find("name or num")
-       $('.').text(name);
-       $('.date').text(num);
-       $('.').html(name);
-       $('.temparature').html((num-23)*(5/9);
+       $('#today.date').text();
+       $('#today.condition').text();
+       $('#today.temperature').text();
+
+       $('#day1.date').text();
+       $('#day1.condition').text();
+       $('#day1.temperature').text();
+
+       $('#day2.date').text();
+       $('#day2.condition').text();
+       $('#day2.temperature').text();
+
+       $('#day3.date').text();
+       $('#day3.condition').text();
+       $('#day3.temperature').text();
+
+
 
 
 
