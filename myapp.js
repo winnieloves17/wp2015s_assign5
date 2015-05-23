@@ -26,37 +26,57 @@ $('#dropdown li').on('click', function(){
     
 });
 
-     var cityArr=["Taibei Shi","Xinbei Shi","Taiching Shi","Tainan Shi","Kaoshiong Shi","Taoyuan Shi","Xinzhu Shi","Xinchu Xian","Miaoli Xian","Nantou Xian",
-       "Yunlin Xian","Jiayi Shi","Jiayi Xian","Pindong Xian","Yilan Xian","Hualian Xian","Taidong Xian","Penghu Xian","Jinmen Xian","Lianjiang Xian"];
-       $.ajax('https://query.yahooapis.com/v1/public/yql', {
+var cityArr = [
+                '臺北市',
+                '新北市',
+                '台中市',
+                '臺南市',
+                '高雄市',
+                '基隆市',
+                '桃園區',
+                '新竹市',
+                '新竹縣',
+                '苗栗縣',
+                '彰化縣',
+                '南投縣',
+                '雲林縣',
+                '嘉義市',
+                '嘉義縣',
+                '屏東縣',
+                '宜蘭縣',
+                '花蓮縣',
+                '台東縣',
+                '澎湖縣',
+                '金門縣',
+                '連江縣'
+                ];       
+    $.ajax('https://query.yahooapis.com/v1/public/yql', {
          method: 'GET',
          data: {
-           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[n] + '")',
-           //用羅馬拼音查詢程式
+           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[n] + '") and u="c"',
            format: 'json'
          },
          success: function (data) {
        var weatherInfo = data.query.results.channel;
-             var cityMatch = 'It seems ' + weatherInfo.item.condition.text.toLowerCase()+' in '+ weatherInfo.location.city + ', ' + weatherInfo.location.country
-             var noCity = 'Sorry, I found no city matching ' + city;
+       var a = weatherInfo.item.forecast[0].date;
+           console.log(a);
+       var b = weatherInfo.item.forecast[0].day;
+           console.log(b);
+       var c = weatherInfo.item.forecast[0].high;
+           console.log(c);
+       var d = weatherInfo.item.forecast[0].low;
+           console.log(d);
+       var e = weatherInfo.item.forecast[0].text;
+           console.log(e);
 
-           if (data.query.count === 0 || data.query.results.channel.item.title === 'City not found') {
-             responsiveVoice.speak(noCity);
-             setSubtitle(noCity);
-             return false;
-           }
-           console.log(weatherInfo);
-           console.log(cityMatch);
-           console.log(nocity);
          }
        });
 
        //回傳 onClick, find("name or num")
-       $('#city').text(name);
-       $('#date').text(num);
-       $('#weatherInfo').html(name);
-       $('#temparature').html((num-23)*(5/9);
-       // 華氏換算攝氏:(F-32)*(5/9)
+       $('.').text(name);
+       $('.date').text(num);
+       $('.').html(name);
+       $('.temparature').html((num-23)*(5/9);
 
 
 
