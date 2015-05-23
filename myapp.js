@@ -26,7 +26,7 @@ $('#dropdown li').on('click', function(){
     
 });
 
-var cityArr = [
+ cityArr = [
                 '臺北市',
                 '新北市',
                 '台中市',
@@ -57,61 +57,40 @@ var cityArr = [
            format: 'json'
          },
          success: function (data) {
-       var weatherInfo = data.query.results.channel;
-       var date0 = weatherInfo.item.forecast[0].date;
-           console.log(date0);
-       var high0 = weatherInfo.item.forecast[0].high;
-           console.log(high0);
-       var low0 = weatherInfo.item.forecast[0].low;
-           console.log(low0);
-       var text0 = weatherInfo.item.forecast[0].text;
-           console.log(text0);
+      var  weatherInfo = data.query.results.channel,
 
-       var date1 = weatherInfo.item.forecast[1].date;
-           console.log(date1);
-       var high1 = weatherInfo.item.forecast[1].high;
-           console.log(high1);
-       var low1 = weatherInfo.item.forecast[1].low;
-           console.log(low1);
-       var text1 = weatherInfo.item.forecast[1].text;
-           console.log(text1);
+        date0 = weatherInfo.item.forecast[0].date,
+        high0 = weatherInfo.item.forecast[0].high,
+        low0 = weatherInfo.item.forecast[0].low,
+        text0 = weatherInfo.item.forecast[0].text,
 
-       var date2 = weatherInfo.item.forecast[2].date;
-           console.log(date2);
-       var high2 = weatherInfo.item.forecast[2].high;
-           console.log(high2);
-       var low2 = weatherInfo.item.forecast[2].low;
-           console.log(low2);
-       var text2 = weatherInfo.item.forecast[2].text;
-           console.log(text2);
+        date1, = weatherInfo.item.forecast[1].date,
+        high1 = weatherInfo.item.forecast[1].high,
+        low1 = weatherInfo.item.forecast[1].low,
+        text1 = weatherInfo.item.forecast[1].text,
 
-       var date3 = weatherInfo.item.forecast[3].date;
-           console.log(date3);
-       var high3 = weatherInfo.item.forecast[3].high;
-           console.log(high3);
-       var low3 = weatherInfo.item.forecast[3].low;
-           console.log(low3);
-       var text3 = weatherInfo.item.forecast[3].text;
-           console.log(text3);
+        date2 = weatherInfo.item.forecst[2].date,
+        high2 = weatherInfo.item.forecast[2].high,
+        low2 = weatherInfo.item.forecast[2].low,
+        text2 = weatherInfo.item.forecast[2].text,
+
+        date3 = weatherInfo.item.forecast[3].date,
+        high3 = weatherInfo.item.forecast[3].high,
+        low3 = weatherInfo.item.forecast[3].low,
+        text3 = weatherInfo.item.forecast[3].text,
+
          }
        });
 
        //回傳 onClick, find("name or num")
-       $('#today.date').text();
-       $('#today.condition').text();
-       $('#today.temperature').text();
+       $('.date').text();
+       $('#dateDay1').text();
+       $('#dateDay2').text();
+       $('#dateDay3').text();
+       
+       $('.condition',).text();
+       $('.temperature').text();
 
-       $('#day1.date').text();
-       $('#day1.condition').text();
-       $('#day1.temperature').text();
-
-       $('#day2.date').text();
-       $('#day2.condition').text();
-       $('#day2.temperature').text();
-
-       $('#day3.date').text();
-       $('#day3.condition').text();
-       $('#day3.temperature').text();
 
 
 
