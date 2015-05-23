@@ -53,7 +53,7 @@ var cityArr = [ '臺北市',
     $.ajax('https://query.yahooapis.com/v1/public/yql', {
          method: 'GET',
          data: {
-           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[2] + '") and u="c"',
+           q: 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + cityArr[10] + '") and u="c"',
            format: 'json'
          },
          success: function (data) {
@@ -93,11 +93,11 @@ var cityArr = [ '臺北市',
          $('#tempDay3').text(low3+"-"+high3);
 
         //設定Skykons對應的API資料
-         for (var i=0;i<code.length;i+=1){
+         for (var i=0;i<codelist.length;i+=1){
           var code = codelist[i],
               dayArr =["today","day1","day2","day3"];
-         switch(code)
-         {
+         switch(code){
+
           case'1':  //tropical storm
           case'2':  //hurricane
           case'3':  //severe thunderstorms
@@ -114,7 +114,9 @@ var cityArr = [ '臺北市',
           case'45':  //thundershowers
           case'46':  //snow showers
           case'47':  //isolated thundershowers
-        skycons.set(dayArr[i], Skycons.Skycons.RAIN);
+        skycons.set(dayArr[i], Skycons.RAIN);
+
+          break;
 
           case'13':  //snow flurries
           case'14':  //light snow showers
@@ -123,43 +125,59 @@ var cityArr = [ '臺北市',
           case'41':  //heavy snow
           case'42':  //scattered snow showers
           case'43':  //heavy snow
-        skycons.set(dayArr[i], Skycons.Skycons.SNOW);
+        skycons.set(dayArr[i], Skycons.SNOW);
+
+          break;
 
           case'17':  //hail
           case'18':  //sleet
-        skycons.set(dayArr[i], Skycons.Skycons.SLEET);
+        skycons.set(dayArr[i], Skycons.SLEET);
+
+          break;
 
           case'19':  //dust
           case'20':  //foggy
           case'21':  //haze
           case'22':  //smoky
-        skycons.set(dayArr[i], Skycons.Skycons.FOG);
+        skycons.set(dayArr[i], Skycons.FOG);
+
+          break;
 
           case'23':  //blustery
           case'24':  //windy
-        skycons.set(dayArr[i], Skycons.Skycons.WIND);
+        skycons.set(dayArr[i], Skycons.WIND);
+
+          break;
 
           case'25':  //cold
           case'26':  //cloudy
-        skycons.set(dayArr[i], Skycons.Skycons.CLOUDY);
+        skycons.set(dayArr[i], Skycons.CLOUDY);
+
+          break;
 
           case'27':  //mostly cloudy (night)
           case'29':  //partly cloudy (night)
-        skycons.set(dayArr[i], Skycons.Skycons.PARTLY_CLOUDY_NIGHT );
+        skycons.set(dayArr[i], Skycons.PARTLY_CLOUDY_NIGHT);
+
+          break;
 
           case'28':  //mostly cloudy (day)
           case'30':  //partly cloudy (day)
           case'44':  //partly cloudy
-        skycons.set(dayArr[i], Skycons.Skycons.PARTLY_CLOUDY_DAY);
+        skycons.set(dayArr[i], Skycons.PARTLY_CLOUDY_DAY);
+
+          break;
 
           case'31':  //clear (night)
           case'33':  //fair (night)
-        skycons.set(dayArr[i], Skycons.Skycons.CLEAR_NIGHT);
+        skycons.set(dayArr[i], Skycons.CLEAR_NIGHT);
+          
+          break;
 
           case'32':  //sunny
           case'34':  //fair (day)
           case'36':  //hot
-        skycons.set(dayArr[i], Skycons.Skycons.CLEAR_DAY);
+        skycons.set(dayArr[i], Skycons.CLEAR_DAY);
 
           break;
 
