@@ -60,15 +60,39 @@ var cityArr = [
        var weatherInfo = data.query.results.channel;
        var date0 = weatherInfo.item.forecast[0].date;
            console.log(date0);
-       var date0 = weatherInfo.item.forecast[0].high;
-           console.log(date0);
-       var date0 = weatherInfo.item.forecast[0].low;
-           console.log(date0);
+       var high0 = weatherInfo.item.forecast[0].high;
+           console.log(high0);
+       var low0 = weatherInfo.item.forecast[0].low;
+           console.log(low0);
        var text0 = weatherInfo.item.forecast[0].text;
            console.log(text0);
 
+       var date1 = weatherInfo.item.forecast[1].date;
+           console.log(date1);
+       var high1 = weatherInfo.item.forecast[1].high;
+           console.log(high1);
+       var low1 = weatherInfo.item.forecast[1].low;
+           console.log(low1);
+       var text1 = weatherInfo.item.forecast[1].text;
+           console.log(text1);
 
+       var date2 = weatherInfo.item.forecast[2].date;
+           console.log(date2);
+       var high2 = weatherInfo.item.forecast[2].high;
+           console.log(high2);
+       var low2 = weatherInfo.item.forecast[2].low;
+           console.log(low2);
+       var text2 = weatherInfo.item.forecast[2].text;
+           console.log(text2);
 
+       var date3 = weatherInfo.item.forecast[3].date;
+           console.log(date3);
+       var high3 = weatherInfo.item.forecast[3].high;
+           console.log(high3);
+       var low3 = weatherInfo.item.forecast[3].low;
+           console.log(low3);
+       var text3 = weatherInfo.item.forecast[3].text;
+           console.log(text3);
          }
        });
 
